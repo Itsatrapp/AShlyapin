@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class FirstClass
+{
+    protected:
+        int Fa = 1;
+        void show_prot()
+        {
+            cout << Fa << endl;
+        }
+    public:
+        int Fb = 2;
+        void show_pub()
+        {
+            cout << Fb << endl;
+        }
+    private:
+        int Fc = 3;
+        void show_priv()
+        {
+            cout << Fc << endl;
+        }
+};
+
+class A : protected FirstClass
+{
+    public:
+        void show_Fa ()
+        {
+            cout << Fa << endl;
+        }
+     };
+
+class B : public FirstClass
+{
+    public:
+        void show_Fb ()
+        {
+            cout << Fb << endl;
+        }
+};
+
+class C : private FirstClass
+{
+    public:
+        void show_Fc ()
+        {
+       //     cout << Fc << endl;
+        }
+};
+
+int main()
+{
+  A Fa_object;
+  cout << " protected = ";
+//  Fa_object.show_prot();
+
+  B Fb_object;
+  cout << " public = ";
+  Fb_object.show_pub();
+
+  C Fc_object();
+  cout << " private = ";
+ // Fc_object.show_Fc();
+  cout << endl;
+  return 0;
+}
